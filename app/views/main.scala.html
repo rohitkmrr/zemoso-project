@@ -1,0 +1,129 @@
+@* * This template is called from the `index` template. This template * handles
+the rendering of the page header and body tags. It takes * two arguments, a
+`String` for the title of the page and an `Html` * object to insert into the
+body of the page. *@ @(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+@* Here's where we render the page title `String`. *@
+<title>@title</title>
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+<script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+
+<!-- Import jquery , bootstrap and other libraries -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+ type="text/javascript"></script>
+
+<!-- Add application js and css files here-->
+<script src="@routes.Assets.versioned("javascripts/login_script.js")" type="text/javascript"></script>
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/login_style.css")">
+
+
+</head>
+<body style="background-color: #e0e0e0">
+<nav class="navbar navbar-default">
+ <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="zemoso_tag"><h3> Zemoso Notes </h3></div>
+      <div class="pic">
+            <img width="42" height="42" src="http://www.holycitysinner.com/wp-content/uploads/2015/08/Notes2.png ">
+       </div>
+        <div class="zemoso_pic">  <img src="http://www167.lunapic.com/do-not-link-here-use-hosting-instead/146917879139661?4947838495" height="42" width="42"> </div>
+    </div>
+    </div>
+  </div>
+</nav>
+ <div class="container">
+  <div class="row">
+   <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-login">
+     <div class="panel-heading">
+      <div class="row">
+       <div class="col-xs-6">
+        <a id="login-form-link" class="active" href="#">Login</a>
+       </div>
+       <div class="col-xs-6">
+        <a id="register-form-link" href="#">Register</a>
+       </div>
+      </div>
+      <hr>
+     </div>
+     <div class="panel-body">
+      <div class="row">
+       <div class="col-lg-12">
+        <form style="display: block;" role="form" method="post"
+         action="/login" id="login-form">
+         <div class="form-group">
+          <input type="text" value="" placeholder="Username"
+           class="form-control" tabindex="1" id="username" name="username">
+         </div>
+         <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control"
+           tabindex="2" id="password" name="password">
+         </div>
+         <div class="form-group text-center">
+          <input type="checkbox" id="remember" name="remember" class=""
+           tabindex="3"> <label for="remember"> Remember Me</label>
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-sm-6 col-sm-offset-3">
+            <input type="submit" value="Log In"
+             class="form-control btn btn-login" tabindex="4" id="login-submit"
+             name="login-submit">
+           </div>
+          </div>
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-lg-12">
+            <div class="text-center">
+             <a class="forgot-password" tabindex="5"
+              href="http://phpoll.com/recover">Forgot Password?</a>
+            </div>
+           </div>
+          </div>
+         </div>
+        </form>
+        <form style="display: none;" role="form" method="post"
+        action ="@routes.RegisterController.addUser()" id="register-form">
+         <div class="form-group">
+          <input type="text" value="" placeholder="Username"
+           class="form-control" tabindex="1" id="username" name="username">
+         </div>
+         <div class="form-group">
+          <input type="email" value="" placeholder="Email Address"
+           class="form-control" tabindex="1" id="email" name="email">
+         </div>
+         <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control"
+           tabindex="2" id="password" name="password">
+         </div>
+         <div class="form-group">
+          <input type="password" placeholder="Confirm Password"
+           class="form-control" tabindex="2" id="confirm-password"
+           name="confirm-password">
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-sm-6 col-sm-offset-3">
+            <input type="submit" value="Register Now" 
+             class="form-control btn btn-register" tabindex="4"
+             id="register-submit" name="register-submit">
+           </div>
+          </div>
+         </div>
+        </form>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</body>
+</html>
