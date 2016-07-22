@@ -19,7 +19,7 @@ public class LoginController extends Controller {
     public Result Loginindex() {
         return ok(index2.render("Your new application is ready."));
     }
-    public Result myHome() {
-        return ok(index_for_homePage.render("Your new application is ready."));
-    }
+    // public Result myHome() {
+    //     return ok(index_for_homePage.render("Your new application is ready."));
+    // }
 }

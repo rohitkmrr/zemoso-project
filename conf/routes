@@ -22,7 +22,7 @@ GET     /user                    controllers.RegisterController.showUser()
 GET     /login                  controllers.LoginController.Loginindex
 
 #for home page
-GET     /hme                    controllers.LoginController.myHome()
+#GET     /hme                    controllers.LoginController.myHome()
 
 #to include image
 GET  /images/*file             controllers.Assets.at(path="/public/images", file)
