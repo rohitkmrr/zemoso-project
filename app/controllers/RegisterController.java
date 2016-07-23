@@ -48,8 +48,16 @@ public class RegisterController extends Controller {
         return ok(index.render("this is the sample code change."));
     }
     
-    public Result addUser() {
-        User_Registration usr=  Form.form(User_Registration.class).bindFromRequest().get();
+    // public Result addUser() {
+    //     User_Registration usr=  Form.form(User_Registration.class).bindFromRequest().get();
+     
+    //     usr.save();
+      
+    //     return redirect(routes.HomeController.index());
+    // }
+    
+     public Result addUser() {
+        User_Data usr=  Form.form(User_Data.class).bindFromRequest().get();
      
         usr.save();
       

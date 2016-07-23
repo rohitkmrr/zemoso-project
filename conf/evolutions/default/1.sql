@@ -3,6 +3,13 @@
 
 # --- !Ups
 
+create table user_data (
+  note_id                       bigint auto_increment not null,
+  title                         varchar(255),
+  description                   varchar(255),
+  constraint pk_user_data primary key (note_id)
+);
+
 create table user_registration (
   id                            bigint auto_increment not null,
   username                      varchar(255),
@@ -13,6 +20,8 @@ create table user_registration (
 
 
 # --- !Downs
+
+drop table if exists user_data;
 
 drop table if exists user_registration;
 
