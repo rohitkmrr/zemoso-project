@@ -30,9 +30,9 @@ body of the page. *@ @(title: String)(content: Html)
     <div class="navbar-header">
       <div class="zemoso_tag"><h3> Zemoso Notes </h3></div>
       <div class="pic">
-            <img width="42" height="42" src="http://www.holycitysinner.com/wp-content/uploads/2015/08/Notes2.png ">
+            <img class="ui" src="@routes.Assets.at("images/Notes2.png")" height="42" width="42" />
        </div>
-        <div class="zemoso_pic">  <img src="http://www167.lunapic.com/do-not-link-here-use-hosting-instead/146917879139661?4947838495" height="42" width="42"> </div>
+        <div class="zemoso_pic"> <img class="ui" src="@routes.Assets.at("images/zemoso_image.gif")" height="42" width="42" /> </div>
     </div>
     </div>
   </div>
@@ -90,7 +90,7 @@ body of the page. *@ @(title: String)(content: Html)
          </div>
         </form>
         <form style="display: none;" role="form" method="post"
-        action ="@routes.RegisterController.addUser()" id="register-form">
+        action ="@routes.RegisterController.registerUser()" id="register-form">
          <div class="form-group">
           <input type="text" value="" placeholder="Username"
            class="form-control" tabindex="1" id="username" name="username">

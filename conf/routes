@@ -6,23 +6,28 @@ GET     /                           controllers.HomeController.index
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
+#GET     /message                    controllers.AsyncController.message
 
 GET     /rohit                      controllers.HomeController.rohit
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 # To post information of new user (Registration of new user)
-GET    /register                        controllers.RegisterController.addUser()
+POST    /register                        controllers.RegisterController.registerUser()
+
+POST    /addNote                            controllers.RegisterController.addNote()
 
 # To get inf. stored about users
-GET     /user                    controllers.RegisterController.showUser()   
+GET     /user                               controllers.RegisterController.showUser()   
 
 # for login route
-GET     /login                  controllers.LoginController.Loginindex
+GET     /login                              controllers.LoginController.Loginindex
 
 #for home page
-#GET     /hme                    controllers.LoginController.myHome()
+#GET     /hme                               controllers.LoginController.myHome()
 
 #to include image
-GET  /images/*file             controllers.Assets.at(path="/public/images", file)
+
+GET  /assets/*file                           controllers.Assets.at(path="/public", file)
+
+POST     /updateNote                         controllers.RegisterController.updateNote()

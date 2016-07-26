@@ -38,3 +38,48 @@ nav {
      margin-top: -41px;
 }
 
+.note_class {
+    background-color: #e0e0e0;
+    border: 2px solid black;
+    display:inline-block;
+    word-wrap:break-word;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    float: left;
+    width: 33.3333%;
+    display: inline-block;
+  
+    
+}
+  .reminder_logo{
+            display:none;
+        }
+/*.delete_logo{*/
+/*    margin-left: 160px*/
+/*}*/
+
+.modal-title {
+    font-weight : bold;
+    font-size : 16px;
+    
+}
+
+.modal-body {
+     word-wrap: break-word;
+}
+
+#add_note{
+    border:2px solid  #e0e0e0;
+}
+
+#date_time_box {
+    visibility: hidden;
+}
+
+
+.input-group {
+    margin-bottom: 10px;
+    width: 100%;
+   }

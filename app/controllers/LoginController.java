@@ -1,8 +1,17 @@
 package controllers;
 
-import play.mvc.*;
-
 import views.html.*;
+
+
+//import play.db.ebean.Model;
+
+import com.avaje.ebean.Model;
+import models.*;
+import java.util.*;
+
+import play.mvc.Controller;
+import play.mvc.Result;
+
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -17,9 +26,13 @@ public class LoginController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result Loginindex() {
-        return ok(index2.render("Your new application is ready."));
+        List<User_Data> user = getNotes();
+        return ok(login.render(user,new play.twirl.api.Html("It <em>finally</em> works!")));
     }
-    // public Result myHome() {
-    //     return ok(index_for_homePage.render("Your new application is ready."));
-    // }
+    
+    public List<User_Data> getNotes() {
+        // get all notes of a given user    
+        List<User_Data> all_notes_for_user= new Model.Finder(String.class,  User_Data.class).all();
+        return all_notes_for_user;
+    }
 }
