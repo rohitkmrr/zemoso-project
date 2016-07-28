@@ -30,4 +30,13 @@ GET     /login                              controllers.LoginController.Loginind
 
 GET  /assets/*file                           controllers.Assets.at(path="/public", file)
 
+#to update notes
 POST     /updateNote                         controllers.RegisterController.updateNote()
+
+# to delete notes
+POST    /deleteNote                           controllers.RegisterController.deleteNote()
+
+#to archive notes
+# to delete notes
+POST    /archiveNote                           controllers.RegisterController.archiveNote()
+

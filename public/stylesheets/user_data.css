@@ -39,8 +39,8 @@ nav {
 }
 
 .note_class {
-    background-color: #e0e0e0;
-    border: 2px solid black;
+    background-color: white;
+    border: 6px #e0e0e0 solid;
     display:inline-block;
     word-wrap:break-word;
     min-height: 1px;

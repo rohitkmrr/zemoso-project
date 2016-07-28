@@ -2,6 +2,7 @@ package controllers;
 
 import views.html.*;
 
+import com.avaje.ebean.Ebean;
 
 //import play.db.ebean.Model;
 
@@ -32,7 +33,9 @@ public class LoginController extends Controller {
     
     public List<User_Data> getNotes() {
         // get all notes of a given user    
-        List<User_Data> all_notes_for_user= new Model.Finder(String.class,  User_Data.class).all();
+      //  List<User_Data> all_notes_for_user= new Model.Finder(String.class,  User_Data.class).all();
+        List<User_Data> all_notes_for_user=Ebean.find(User_Data.class).where().eq("state",1).findList();
+
         return all_notes_for_user;
     }
 }

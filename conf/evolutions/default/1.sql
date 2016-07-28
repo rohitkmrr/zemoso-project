@@ -5,10 +5,12 @@
 
 create table user_data (
   note_id                       bigint auto_increment not null,
+  user_id                       integer,
   title                         varchar(255),
   description                   varchar(255),
   state                         integer,
   reminder_start                datetime(6),
+  modified_on                   datetime(6),
   is_reminder_set               integer,
   created_on                    datetime(6),
   deleted_on                    varchar(255),
