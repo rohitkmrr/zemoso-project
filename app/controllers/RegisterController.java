@@ -91,8 +91,9 @@ public class RegisterController extends Controller {
      public Result deleteNote() {
           String note_id = Form.form().bindFromRequest().get("note_id");
            Logger.info("here we are deleteing <<<<<<<<<<<<,,,,>>>>>>>>>>>>>>>>>>>." + "  "+ note_id );
-            String s =("DELETE FROM user_data WHERE note_id = note_id");
+          String s =("DELETE FROM user_data WHERE note_id = :note_id");
           SqlUpdate down = Ebean.createSqlUpdate(s);
+          down.setParameter("note_id", note_id);
          int modifiedCount = Ebean.execute(down);
            return ok(index.render("this is the sample code change."));
          

@@ -82,7 +82,7 @@ body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(c
 
         <div class="modal fade" id="modal-container-261773" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog">
-          <div class="modal-content">
+         <!-- <div class="modal-content">
            <div class="modal-header">
             <input type="hidden" name="note_id" value="">
             <div class="col-md-12 column ui-sortable">
@@ -102,6 +102,26 @@ body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(c
            </div>
 
           </div>
+          -->
+          <div class="modal-content"> 
+    <div class="modal-header"> 
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>         
+<input type="hidden" name="note_id" value="">
+        <div contenteditable="true" id="note_title" class="modal-title">this is the tile of the modal<br></div> 
+    </div>     
+
+    <div contenteditable="true" id="note_description" class="modal-body">this is the descriptonasdf<br><br>sdfsdf<br>sdfsdf<br>sdfsdf<br><br type="_moz"> 
+      <div>
+       
+      </div>
+    </div>     
+
+    <div class="modal-footer" style="border-top-width: 0px;"> 
+        <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>         
+
+        <button class="btn btn-primary" type="button" id="update_note">Save changes</button>         
+    </div>     
+</div>
          </div>
 
         </div>
@@ -113,25 +133,25 @@ body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(c
 
         <div class="modal fade" id="modal-container-261772" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog">
-          <div class="modal-content">
-           <div class="modal-header">
-            <div class="col-md-12 column ui-sortable">
-             <div class="input-group">
-              <input type="text" aria-describedby="basic-addon1" placeholder="Title" class="form-control" id="note_title">
-             </div>
-            </div>
-            <div class="modal-body">
-             <div class="form-group">
-              <textarea class="form-control" placeholder="Description" rows="5" id="note_description"></textarea>
-             </div>
-            </div>
-            <div class="modal-footer">
-             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-             <button type="button" class="btn btn-primary" id="note_submit">Savvvvvvve</button>
-            </div>
-           </div>
+          <div class="modal-content"> 
+    <div class="modal-header"> 
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>         
+<input type="hidden" name="note_id" value="">
+        <div contenteditable="true" id="note_title" class="modal-title">this is the tile of the modal<br></div> 
+    </div>     
 
-          </div>
+    <div contenteditable="true" id="note_description" class="modal-body">this is the descriptonasdf<br><br>sdfsdf<br>sdfsdf<br>sdfsdf<br><br type="_moz"> 
+      <div>
+       
+      </div>
+    </div>     
+
+    <div class="modal-footer" style="border-top-width: 0px;"> 
+        <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>         
+
+        <button class="btn btn-primary" type="button" id="note_submit">Save changes</button>         
+    </div>     
+</div>
          </div>
 
         </div>
@@ -155,10 +175,10 @@ body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(c
 
 	@{k= User_note_data_list(index).note_id }
 	<div class="note_class" id= "@k">
-								<h2>@User_note_data_list(index).title</h2>
-								<p>
-				@User_note_data_list(index).description
-			</p>
+								<div id="note_title">@Html(User_note_data_list(index).title)</div>
+								<div id="note_description">
+				@Html(User_note_data_list(index).description)
+			</div>
 				<div class="col-md-3">
 					<img  src="@routes.Assets.at("images/reminder_logo1.gif")" height="20" width="20" />
 				</div>
@@ -167,7 +187,7 @@ body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(c
 				    <img  src="@routes.Assets.at("images/images3.jpeg")" height="20" width="20" />
 				</div>
 				 
-					<div class="col-md-3 delete_logo" >
+					<div class="col-md-3 delete_logo" id="@k" >
 					    <img  src="@routes.Assets.at("images/delete_logo.gif")" height="20" width="20" />
 					</div>
 							
