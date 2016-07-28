@@ -120,6 +120,13 @@ $(document).ready(function () {
       });
       
   });
+  
+    $('.archive_button').bind("click", function(){
+        $.get("/archiveNotes");
+    });
+    
+  
+  
         //  $("[name='note_id']").hover(function(){
         //  $('.reminder_logo').fadeToggle();
         // });

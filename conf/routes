@@ -36,7 +36,9 @@ POST     /updateNote                         controllers.RegisterController.upda
 # to delete notes
 POST    /deleteNote                           controllers.RegisterController.deleteNote()
 
-#to archive notes
-# to delete notes
+#to update archive status of the notes 
 POST    /archiveNote                           controllers.RegisterController.archiveNote()
+
+#to get archiveNotes
+GET     /archiveNotes                              controllers.LoginController.archiveNotes()
 
