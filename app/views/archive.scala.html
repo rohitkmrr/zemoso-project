@@ -4,21 +4,7 @@ the rendering of the page header and body tags. It takes * two arguments, a
 body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(content: Html)
 
 <!DOCTYPE html>    
-<head><link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-<script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
 
-<!-- Import jquery , bootstrap and other libraries -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-<script src="//code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
- type="text/javascript"></script>
-
-<!-- Add application js and css files here-->
-<script src="@routes.Assets.versioned("javascripts/script.js")" type="text/javascript"></script>
-<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/user_data.css")">
-<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/login_style.css")">
-</head>
-<body>
        @import java.lang.Long; var k=1L;
        <!--  for loop to print user data -->
      @for(index <- 0 until User_note_data_list.size){
@@ -55,4 +41,3 @@ body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(c
 
 }
 
-</body>

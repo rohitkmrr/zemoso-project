@@ -2,28 +2,14 @@ $(document).ready(function () {
 
 
 
-//  $('#add_note').bind("click", function(){
-//           $('#modal-container-261772').modal('show');
-//           $('#modal-container-261772').find('#note_title').html("<br>");
-//           $('#modal-container-261772').find('#note_description').html("<br>");
-           
-           
-    
-//   });
-  
-  angular.module('add_note', [])
-.controller('on_add_note_click', function($scope) {
-    
-    $scope.myFunc = function() {
-         $('#modal-container-261772').modal('show');
+ $('#add_note').bind("click", function(){
+           $('#modal-container-261772').modal('show');
            $('#modal-container-261772').find('#note_title').html("<br>");
            $('#modal-container-261772').find('#note_description').html("<br>");
-    };
-});
-
-  
-  
-  
+           
+           
+    
+  });
   
   $('#note_submit').bind("click", function(){
       var title = $('#modal-container-261772').find('#note_title').html();
@@ -112,12 +98,12 @@ $(document).ready(function () {
       
   });
   
-   $('.archive_logo').bind("click", function(){
+  $('.archive_logo').bind("click", function(){
      
 	  var note_id = $(this).attr("id");
       console.log("deletreeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + note_id);
       var note_data = {
-           note_id : note_id
+          note_id : note_id
       };
       
       $.ajax({
@@ -151,14 +137,14 @@ $(document).ready(function () {
              // $('#modal-container-261773').modal('hide');
              $( '.parent_note' ).html(text.responseText);
              console.log(text);
-             $("'#add_note'").hide();
+             $('#add_note').hide();
              
           },
           error : function(text) {
             // $('#modal-container-261773').modal('hide');
              $( '.parent_note' ).html(text.responseText);
              console.log(text);
-            $("'#add_note'").hide();
+            $('#add_note').hide();
           }
       });
     });
