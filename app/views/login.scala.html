@@ -3,6 +3,7 @@ the rendering of the page header and body tags. It takes * two arguments, a
 `String` for the title of the page and an `Html` * object to insert into the
 body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(content: Html)
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +23,8 @@ body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(c
 <script src="@routes.Assets.versioned("javascripts/script.js")" type="text/javascript"></script>
 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/user_data.css")">
 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/login_style.css")">
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 
 </head>
@@ -122,7 +125,7 @@ body of the page. *@  @(User_note_data_list: java.util.List[models.User_Data])(c
 
         </div>
 
-        <div id="add_note">
+        <div   ng-app="add_note" ng-controller="on_add_note_click" ng-click="myFunc()">
          <h2>Take a note...</h2>
         </div>
 

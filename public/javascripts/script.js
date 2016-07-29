@@ -2,14 +2,28 @@ $(document).ready(function () {
 
 
 
- $('#add_note').bind("click", function(){
-           $('#modal-container-261772').modal('show');
-           $('#modal-container-261772').find('#note_title').html("<br>");
-           $('#modal-container-261772').find('#note_description').html("<br>");
+//  $('#add_note').bind("click", function(){
+//           $('#modal-container-261772').modal('show');
+//           $('#modal-container-261772').find('#note_title').html("<br>");
+//           $('#modal-container-261772').find('#note_description').html("<br>");
            
            
     
-  });
+//   });
+  
+  angular.module('add_note', [])
+.controller('on_add_note_click', function($scope) {
+    
+    $scope.myFunc = function() {
+         $('#modal-container-261772').modal('show');
+           $('#modal-container-261772').find('#note_title').html("<br>");
+           $('#modal-container-261772').find('#note_description').html("<br>");
+    };
+});
+
+  
+  
+  
   
   $('#note_submit').bind("click", function(){
       var title = $('#modal-container-261772').find('#note_title').html();
