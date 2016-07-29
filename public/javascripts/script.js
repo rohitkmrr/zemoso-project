@@ -60,7 +60,7 @@ $(document).ready(function () {
       
   });
   
-  $('.note_class').bind("click", function(){
+  $('.on_click_note').bind("click", function(){
      // console.log($(this).html());
      // console.log($(this).find("h2").html());
       var title = $(this).find("#note_title").html();
@@ -72,7 +72,7 @@ $(document).ready(function () {
       $('#modal-container-261773').find('#note_description').html(description);
         $('#modal-container-261773').find("[name='note_id']").val(note_id);
        $('#modal-container-261773').modal('show');
-  })
+  });
   
   
     $('.delete_logo').bind("click", function(){
@@ -89,10 +89,10 @@ $(document).ready(function () {
           data : note_data,
           dataType: "json",
           success : function() {
-              $('#modal-container-261773').modal('hide');
+              $( '.note_' + note_id ).remove();
           },
           error : function() {
-             $('#modal-container-261773').modal('hide');
+              $( '.note_' + note_id ).remove();
           }
       });
       
@@ -112,25 +112,119 @@ $(document).ready(function () {
           data : note_data,
           dataType: "json",
           success : function() {
-              $('#modal-container-261773').modal('hide');
+             // $('#modal-container-261773').modal('hide');
+              $( '.note_' + note_id ).remove();
           },
           error : function() {
-             $('#modal-container-261773').modal('hide');
+            // $('#modal-container-261773').modal('hide');
+             $( '.note_' + note_id ).remove();
           }
       });
       
   });
   
     $('.archive_button').bind("click", function(){
-        $.get("/archiveNotes");
+              var note_data = {
+           note_id : "123"
+      };
+      
+      $.ajax({
+          type : 'POST',
+          url : '/archiveNotes',
+          data : note_data,
+          dataType: "json",
+          success : function(text) {
+             // $('#modal-container-261773').modal('hide');
+             $( '.parent_note' ).html(text.responseText);
+             console.log(text);
+             $("'#add_note'").hide();
+             
+          },
+          error : function(text) {
+            // $('#modal-container-261773').modal('hide');
+             $( '.parent_note' ).html(text.responseText);
+             console.log(text);
+            $("'#add_note'").hide();
+          }
+      });
     });
     
-  
+    $('.home_button').bind("click", function(){
+              var note_data = {
+           note_id : "123"
+      };
+      
+      $.ajax({
+          type : 'POST',
+          url : '/getAllNotes',
+          data : note_data,
+          dataType: "json",
+          success : function(text) {
+             // $('#modal-container-261773').modal('hide');
+             $( '.parent_note' ).html(text.responseText);
+             console.log(text);
+          },
+          error : function(text) {
+            // $('#modal-container-261773').modal('hide');
+             $( '.parent_note' ).html(text.responseText);
+             console.log(text);
+          }
+      });
+    });
   
         //  $("[name='note_id']").hover(function(){
         //  $('.reminder_logo').fadeToggle();
         // });
-       
+        
+        $('.home_archive_logo').bind("click", function(){
+    
+  var note_id = $(this).attr("id");
+     console.log("deletreeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + note_id);
+     var note_data = {
+          note_id : note_id
+     };
+     
+     $.ajax({
+         type : 'POST',
+         url : '/archiveNote',
+         data : note_data,
+         dataType: "json",
+         success : function() {
+            // $('#modal-container-261773').modal('hide');
+             $( '.note_' + note_id ).remove();
+         },
+         error : function() {
+           // $('#modal-container-261773').modal('hide');
+            $( '.note_' + note_id ).remove();
+         }
+     });
+     
+ });
+ 
+      $('.archive_recover_logo').bind("click", function(){
+     
+	  var note_id = $(this).attr("id");
+      console.log("deletreeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + note_id);
+      var note_data = {
+           note_id : note_id
+      };
+      
+      $.ajax({
+          type : 'POST',
+          url : '/recoverarchiveNote',
+          data : note_data,
+          dataType: "json",
+          success : function() {
+             // $('#modal-container-261773').modal('hide');
+              $( '.note_' + note_id ).remove();
+          },
+          error : function() {
+            // $('#modal-container-261773').modal('hide');
+             $( '.note_' + note_id ).remove();
+          }
+      });
+      
+  });
         
 
  

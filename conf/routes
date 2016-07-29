@@ -40,5 +40,10 @@ POST    /deleteNote                           controllers.RegisterController.del
 POST    /archiveNote                           controllers.RegisterController.archiveNote()
 
 #to get archiveNotes
-GET     /archiveNotes                              controllers.LoginController.archiveNotes()
+POST     /archiveNotes                              controllers.LoginController.getArchiveNotes()
 
+#to get home page
+POST     /getAllNotes                               controllers.LoginController.getAllNotes()
+
+#to recover archive notes 
+POST    /recoverarchiveNote                           controllers.RegisterController.recoverarchiveNote()

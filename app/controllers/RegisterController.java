@@ -60,7 +60,7 @@ public class RegisterController extends Controller {
                 Logger.info("ggggggggggggggggggggggg" + Form.form().bindFromRequest().get("description"));
         
         usr.save();
-      
+        Logger.info("iiiiiiiiiiddd" + usr.note_id);
         return ok(index.render("this is the sample code change."));
     }
     
@@ -90,6 +90,7 @@ public class RegisterController extends Controller {
         
         
     }
+    
      public Result deleteNote() {
           String note_id = Form.form().bindFromRequest().get("note_id");
            Logger.info("here we are deleteing <<<<<<<<<<<<,,,,>>>>>>>>>>>>>>>>>>>." + "  "+ note_id );
@@ -104,6 +105,21 @@ public class RegisterController extends Controller {
      public Result archiveNote() {
           String note_id = Form.form().bindFromRequest().get("note_id");
           int state=0;
+           Logger.info("here we are archiving <<<<<<<<<<<<,,,,>>>>>>>>>>>>>>>>>>>." + "  "+ note_id );
+        String s = "UPDATE user_data set state = :state where note_id = :note_id";
+          SqlUpdate update = Ebean.createSqlUpdate(s);
+        update.setParameter("state", state);
+        update.setParameter("note_id", note_id);
+        int modifiedCount = Ebean.execute(update);
+
+        //Logger.info(note_id + title + description);
+        return ok(index.render("this is the sample code change."));
+         
+     }
+     
+       public Result recoverarchiveNote() {
+          String note_id = Form.form().bindFromRequest().get("note_id");
+          int state=1;
            Logger.info("here we are archiving <<<<<<<<<<<<,,,,>>>>>>>>>>>>>>>>>>>." + "  "+ note_id );
         String s = "UPDATE user_data set state = :state where note_id = :note_id";
           SqlUpdate update = Ebean.createSqlUpdate(s);

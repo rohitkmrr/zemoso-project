@@ -38,18 +38,22 @@ public class LoginController extends Controller {
 
         return all_notes_for_user;
     }
-    
-     public Result archiveNotes() {
-        List<User_Data> user = getArchiveNotes();
-        return ok(login.render(user,new play.twirl.api.Html("It <em>finally</em> works!")));
+    public Result getArchiveNotes() {
+        List<User_Data> user = getArchiveNotess();
+        return ok(archive.render(user,new play.twirl.api.Html("It <em>finally</em> works!")));
     }
     
-    
-      public List<User_Data> getArchiveNotes() {
+    public List<User_Data> getArchiveNotess() {
         // get all notes of a given user    
       //  List<User_Data> all_notes_for_user= new Model.Finder(String.class,  User_Data.class).all();
         List<User_Data> all_notes_for_user=Ebean.find(User_Data.class).where().eq("state",0).findList();
 
         return all_notes_for_user;
     }
+    
+    public Result getAllNotes() {
+        List<User_Data> user = getNotes();
+        return ok(home.render(user,new play.twirl.api.Html("It <em>finally</em> works!")));
+    } 
+
 }
